@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đức Long | Personal Luxury Portfolio</title>
+    <title>Lại Đoàn Đức Long | Portfolio</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <script>
@@ -15,314 +18,642 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Be Vietnam Pro"', 'sans-serif'],
-                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        abyss: '#040B14',
-                        obsidian: '#0A1526',
-                        gold: {
-                            light: '#F3E5AB',
-                            DEFAULT: '#D4AF37',
-                            dark: '#996515',
+                        navy: {
+                            950: '#04091a',
+                            900: '#07112b',
+                            800: '#0d1d45',
+                            700: '#152b63',
                         },
-                        emerald: '#0D5C46'
+                        electric: {
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#2563eb',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-14px)' },
+                        }
                     }
                 }
             }
         }
     </script>
-    <style>
-        body {
-            background-color: #040B14;
-            color: #F8FAFC;
-            overflow-x: hidden;
-        }
-        /* Hiệu ứng kính mờ sang trọng */
-        .luxury-glass {
-            background: rgba(10, 21, 38, 0.55);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(212, 175, 55, 0.22);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .luxury-glass:hover {
-            border-color: rgba(212, 175, 55, 0.65);
-            transform: translateY(-6px);
-            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.12);
-        }
-        /* Chữ ánh kim vàng Champagne */
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #FFF3B8 0%, #D4AF37 50%, #AA7C11 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .gold-border-btn {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
-            border: 1px solid rgba(212, 175, 55, 0.5);
-            transition: all 0.3s ease;
-        }
-        .gold-border-btn:hover {
-            background: linear-gradient(135deg, #D4AF37, #B5891B);
-            color: #040B14;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
-        }
-        /* Hiệu ứng xuất hiện mượt mà */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
 </head>
-<body class="antialiased selection:bg-gold selection:text-abyss">
+<body class="bg-navy-950 text-slate-200 font-sans antialiased selection:bg-electric-500 selection:text-white overflow-x-hidden">
 
-    <!-- Thanh điều hướng tối giản -->
-    <nav class="fixed top-0 w-full z-50 bg-abyss/80 backdrop-blur-md border-b border-gold/15">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-serif text-2xl font-bold tracking-wider gold-gradient-text">ĐỨC LONG.</a>
-            <div class="hidden md:flex space-x-8 text-sm tracking-widest uppercase text-slate-300">
-                <a href="#about" class="hover:text-gold transition">Hồ sơ</a>
-                <a href="#achievements" class="hover:text-gold transition">Bảng vàng</a>
-                <a href="#showcase" class="hover:text-gold transition">Video & Dấu ấn</a>
-                <a href="#contact" class="hover:text-gold transition">Kết nối</a>
+    <!-- Background Ambient Glow Effects -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute top-1/3 -right-32 w-[500px] h-[500px] bg-sky-500/15 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl"></div>
+        <!-- Subtle Grid Overlay -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
+    </div>
+
+    <!-- Custom Toast Notification Box (Replaces alert()) -->
+    <div id="toast-box" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-navy-800/95 backdrop-blur-md border border-sky-400/40 text-white px-5 py-3.5 rounded-2xl shadow-2xl shadow-blue-950 flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0">
+                <i id="toast-icon" class="fa-solid fa-check"></i>
             </div>
-            <a href="#contact" class="px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider gold-border-btn text-gold">
-                Liên hệ
-            </a>
+            <p id="toast-message" class="text-sm font-medium">Thông báo</p>
         </div>
-    </nav>
+    </div>
 
-    <!-- HERO SECTION VỚI VIDEO NỀN SANG TRỌNG -->
-    <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <!-- Video nền (Tự động phát, không tiếng, lặp vô tận) -->
-        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-35 scale-105" poster="https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=2070&auto=format&fit=crop">
-            <!-- Link video sóng biển/thiên nhiên chất lượng cao miễn phí bản quyền -->
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-rocky-coastline-with-turquoise-water-42874-large.mp4" type="video/mp4">
-        </video>
-        
-        <!-- Lớp phủ gradient làm tối chiều sâu -->
-        <div class="absolute inset-0 bg-gradient-to-b from-abyss/80 via-abyss/60 to-abyss"></div>
-
-        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-obsidian/60 backdrop-blur-md mb-6">
-                <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
-                <span class="text-xs uppercase tracking-[0.25em] text-gold-light">THPT Hòn Gai • Hạ Long, Quảng Ninh</span>
-            </div>
-            
-            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-tight">
-                <span class="block text-slate-100">Đức Long</span>
-                <span class="block text-2xl md:text-4xl font-normal italic gold-gradient-text mt-2">
-                    Khát vọng Tri thức & Bản lĩnh Thế hệ Trẻ
+    <!-- Sticky Glassmorphism Navbar -->
+    <header class="fixed top-0 inset-x-0 z-40 transition-all duration-300 bg-navy-950/75 backdrop-blur-xl border-b border-blue-500/15">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center gap-2.5 group">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
+                    L
+                </div>
+                <span class="font-bold text-lg sm:text-xl tracking-tight text-white">
+                    Đức Long<span class="text-sky-400">.</span>
                 </span>
-            </h1>
-            
-            <p class="text-slate-300/90 text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed mb-10">
-                Lớn lên bên bờ Di sản Vịnh Hạ Long, tôi theo đuổi sự hoàn mỹ trong tư duy học thuật, ngoại ngữ toàn cầu và công nghệ sáng tạo.
-            </p>
-            
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#achievements" class="px-8 py-3.5 rounded-full bg-gold text-abyss font-semibold text-sm uppercase tracking-wider hover:bg-gold-light transition shadow-lg shadow-gold/20">
-                    Xem Thành Tích Max Điểm
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#home" class="hover:text-sky-400 transition-colors py-2">Trang chủ</a>
+                <a href="#about" class="hover:text-sky-400 transition-colors py-2">Giới thiệu</a>
+                <a href="#achievements" class="hover:text-sky-400 transition-colors py-2">Thành tích</a>
+                <a href="#goals" class="hover:text-sky-400 transition-colors py-2">Mục tiêu NEU</a>
+                <a href="#contact" class="px-5 py-2.5 rounded-xl bg-blue-600/20 hover:bg-blue-600 text-sky-300 hover:text-white border border-sky-400/30 transition-all duration-300">
+                    Liên hệ
                 </a>
-                <a href="#showcase" class="px-8 py-3.5 rounded-full gold-border-btn text-gold font-medium text-sm uppercase tracking-wider flex items-center gap-2">
-                    <i class="fa-solid fa-play text-xs"></i> Xem Video Giới Thiệu
-                </a>
-            </div>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" aria-label="Mở menu" class="md:hidden p-2.5 rounded-xl bg-navy-800/80 border border-blue-500/20 text-slate-200 hover:text-sky-400 focus:outline-none">
+                <i class="fa-solid fa-bars text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-900/95 backdrop-blur-xl border-b border-blue-500/20 px-4 pt-2 pb-6 space-y-2">
+            <a href="#home" class="mobile-link block px-4 py-3 rounded-xl text-slate-200 hover:bg-blue-600/20 hover:text-sky-400 font-medium">Trang chủ</a>
+            <a href="#about" class="mobile-link block px-4 py-3 rounded-xl text-slate-200 hover:bg-blue-600/20 hover:text-sky-400 font-medium">Giới thiệu</a>
+            <a href="#achievements" class="mobile-link block px-4 py-3 rounded-xl text-slate-200 hover:bg-blue-600/20 hover:text-sky-400 font-medium">Thành tích nổi bật</a>
+            <a href="#goals" class="mobile-link block px-4 py-3 rounded-xl text-slate-200 hover:bg-blue-600/20 hover:text-sky-400 font-medium">Nguyện vọng NEU</a>
+            <a href="#contact" class="mobile-link block px-4 py-3 rounded-xl bg-blue-600 text-white text-center font-semibold mt-2">Liên hệ ngay</a>
         </div>
     </header>
 
-    <!-- PHẦN 1: BẢNG VÀNG THÀNH TÍCH MAX ĐIỂM -->
-    <section id="achievements" class="py-24 px-6 relative">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16 reveal">
-                <p class="text-gold text-xs uppercase tracking-[0.3em] mb-2">Academic & Global Excellence</p>
-                <h2 class="font-serif text-4xl md:text-5xl font-bold text-white">Bảng Vàng Thành Tích Tuyệt Đối</h2>
-                <div class="w-20 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-6"></div>
-            </div>
-
-            <!-- Grid 4 thẻ điểm tối đa (Max Score) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <main class="relative z-10">
+        <!-- HERO SECTION -->
+        <section id="home" class="min-h-screen flex items-center pt-24 pb-16 sm:pt-28 sm:pb-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                 
-                <!-- Card 1: IELTS 9.0 -->
-                <div class="luxury-glass rounded-2xl p-8 relative overflow-hidden reveal">
-                    <div class="absolute -right-4 -top-4 text-gold/10 text-7xl font-serif font-bold">9.0</div>
-                    <div class="w-12 h-12 rounded-xl bg-gold/15 border border-gold/30 flex items-center justify-center text-gold text-xl mb-6">
-                        <i class="fa-solid fa-earth-americas"></i>
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-blue-500/10 border border-sky-400/25 text-sky-300 text-xs sm:text-sm font-medium backdrop-blur-sm">
+                        <span class="relative flex h-2.5 w-2.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500"></span>
+                        </span>
+                        <span>Học sinh trường THPT Hòn Gai</span>
                     </div>
-                    <p class="text-xs uppercase tracking-widest text-gold mb-1">Chứng chỉ Quốc tế</p>
-                    <h3 class="font-serif text-4xl font-bold gold-gradient-text mb-2">IELTS 9.0</h3>
-                    <p class="text-slate-400 text-sm font-light leading-relaxed">
-                        Đạt thang điểm tuyệt đối (Band 9.0 Overall), làm chủ tư duy ngôn ngữ và giao tiếp học thuật chuẩn bản xứ.
+
+                    <!-- Main Title -->
+                    <div class="space-y-3">
+                        <p class="text-slate-400 text-base sm:text-lg font-medium">Xin chào, mình là</p>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                            Lại Đoàn <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-400 to-indigo-400">Đức Long</span>
+                        </h1>
+                    </div>
+
+                    <!-- Translated English Slogan -->
+                    <div class="p-4 sm:p-5 rounded-2xl bg-navy-900/70 border border-sky-500/20 backdrop-blur-md inline-block max-w-xl">
+                        <p class="font-mono text-sky-400 text-sm sm:text-base md:text-lg font-semibold">
+                            <i class="fa-solid fa-terminal mr-2 text-xs opacity-80"></i>"Let's dive deeper into who I am."
+                        </p>
+                    </div>
+
+                    <!-- Short Description -->
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Một người trẻ đam mê khám phá tri thức mới, không ngừng học hỏi từ cuộc sống và đang trên hành trình chinh phục giảng đường <span class="text-sky-400 font-semibold">Đại học Kinh tế Quốc dân (NEU)</span>.
+                    </p>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#achievements" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-semibold shadow-lg shadow-blue-600/30 hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center gap-2.5">
+                            <span>Xem thành tích</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-navy-800/80 hover:bg-navy-700 text-slate-200 hover:text-white border border-blue-400/25 font-semibold transition-all duration-300 flex items-center justify-center gap-2.5">
+                            <i class="fa-regular fa-paper-plane text-sky-400"></i>
+                            <span>Kết nối với mình</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Social Links -->
+                    <div class="pt-4 flex items-center justify-center lg:justify-start gap-4">
+                        <a href="https://www.facebook.com/share/1dqaGywucq/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook của Đức Long" class="w-11 h-11 rounded-xl bg-navy-800/80 hover:bg-blue-600 border border-blue-500/20 flex items-center justify-center text-slate-300 hover:text-white transition-all duration-300 hover:-translate-y-1">
+                            <i class="fa-brands fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="mailto:lailoang209@gmail.com" aria-label="Gửi Email cho Đức Long" class="w-11 h-11 rounded-xl bg-navy-800/80 hover:bg-sky-500 border border-blue-500/20 flex items-center justify-center text-slate-300 hover:text-white transition-all duration-300 hover:-translate-y-1">
+                            <i class="fa-solid fa-envelope text-lg"></i>
+                        </a>
+                        <button onclick="copyEmail()" aria-label="Sao chép Email" class="px-4 h-11 rounded-xl bg-navy-800/80 hover:bg-navy-700 border border-blue-500/20 flex items-center gap-2 text-xs sm:text-sm text-slate-300 hover:text-sky-300 transition-all">
+                            <i class="fa-regular fa-copy text-sky-400"></i>
+                            <span>lailoang209@gmail.com</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Fixed Circular Glowing Avatar Frame -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 animate-float">
+                        <!-- Outer Glowing Blue Aura -->
+                        <div class="absolute -inset-4 rounded-full bg-gradient-to-tr from-sky-400 via-blue-600 to-indigo-500 opacity-50 blur-2xl animate-pulse-slow"></div>
+                        <!-- Sharp Glowing Ring Border -->
+                        <div class="absolute -inset-1.5 rounded-full bg-gradient-to-tr from-sky-400 via-blue-500 to-cyan-300 p-1 shadow-[0_0_40px_rgba(56,189,248,0.45)]">
+                            <div class="w-full h-full bg-navy-950 rounded-full"></div>
+                        </div>
+
+                        <!-- Fixed Circular Portrait Container (Clean, no temporary upload button) -->
+                        <div class="relative w-full h-full rounded-full overflow-hidden bg-slate-300 border-2 border-sky-300/60 shadow-2xl group flex items-center justify-center">
+                            <!-- Embedded SVG Vector Representation of User's Roblox Bacon Hair Man Face Avatar (100% Permanent & Self-Contained) -->
+                            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" role="img" aria-label="Ảnh đại diện Lại Đoàn Đức Long">
+                                <defs>
+                                    <!-- Background Circle Gradient -->
+                                    <radialGradient id="bgGrad" cx="50%" cy="45%" r="55%">
+                                        <stop offset="0%" stop-color="#d4d7dd"/>
+                                        <stop offset="100%" stop-color="#b4b8c0"/>
+                                    </radialGradient>
+                                    <!-- Bacon Hair Warm Brown Gradient -->
+                                    <linearGradient id="hairGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#c97a2b"/>
+                                        <stop offset="45%" stop-color="#8c4814"/>
+                                        <stop offset="100%" stop-color="#4d2206"/>
+                                    </linearGradient>
+                                    <linearGradient id="hairHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#e89e48"/>
+                                        <stop offset="50%" stop-color="#9e5318"/>
+                                        <stop offset="100%" stop-color="#572607"/>
+                                    </linearGradient>
+                                    <!-- Face Shading -->
+                                    <linearGradient id="faceGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#e5e7eb"/>
+                                        <stop offset="20%" stop-color="#f8fafc"/>
+                                        <stop offset="80%" stop-color="#f8fafc"/>
+                                        <stop offset="100%" stop-color="#cbd5e1"/>
+                                    </linearGradient>
+                                    <!-- Blue Shirt Gradient -->
+                                    <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#0284c7"/>
+                                        <stop offset="100%" stop-color="#0369a1"/>
+                                    </linearGradient>
+                                </defs>
+
+                                <!-- Circular Background -->
+                                <rect width="400" height="400" fill="url(#bgGrad)"/>
+
+                                <!-- Back Hair Strands (Bacon Hair) -->
+                                <path d="M88 125 C65 160, 58 215, 72 255 C84 262, 102 252, 112 230 Z" fill="url(#hairGrad1)" stroke="#3d1a04" stroke-width="2"/>
+                                <path d="M312 125 C335 160, 342 215, 328 255 C316 262, 298 252, 288 230 Z" fill="url(#hairGrad1)" stroke="#3d1a04" stroke-width="2"/>
+
+                                <!-- Torso / Jacket & Blue Shirt -->
+                                <path d="M52 365 C65 315, 105 292, 145 288 L255 288 C295 292, 335 315, 348 365 L360 405 L40 405 Z" fill="#18181b"/>
+                                <!-- Blue Inner T-Shirt -->
+                                <path d="M148 288 L252 288 L244 405 L156 405 Z" fill="url(#shirtGrad)"/>
+                                <!-- Jacket Lapels -->
+                                <path d="M148 288 L156 405 L118 405 L125 302 Z" fill="#09090b"/>
+                                <path d="M252 288 L244 405 L282 405 L275 302 Z" fill="#09090b"/>
+
+                                <!-- Roblox Block Head -->
+                                <rect x="115" y="102" width="170" height="196" rx="34" ry="34" fill="url(#faceGrad)" stroke="#cbd5e1" stroke-width="2"/>
+                                <!-- Subtle Chin Shadow -->
+                                <path d="M122 265 Q200 296 278 265 Q265 298 200 298 Q135 298 122 265 Z" fill="#cbd5e1" opacity="0.6"/>
+
+                                <!-- Iconic Roblox "Man Face" Expression -->
+                                <!-- Left Eyebrow -->
+                                <path d="M135 152 Q158 142 184 150 L182 157 Q158 150 136 158 Z" fill="#0f172a"/>
+                                <!-- Right Eyebrow -->
+                                <path d="M265 152 Q242 142 216 150 L218 157 Q242 150 264 158 Z" fill="#0f172a"/>
+
+                                <!-- Left Eye -->
+                                <path d="M139 170 Q160 160 181 170 Q160 179 139 170 Z" fill="#ffffff" stroke="#0f172a" stroke-width="3.2"/>
+                                <circle cx="161" cy="170" r="6.5" fill="#0f172a"/>
+                                <circle cx="163" cy="168" r="2" fill="#ffffff"/>
+                                <!-- Eyelid crease -->
+                                <path d="M142 162 Q160 156 178 162" fill="none" stroke="#334155" stroke-width="1.8" stroke-linecap="round"/>
+
+                                <!-- Right Eye -->
+                                <path d="M219 170 Q240 160 261 170 Q240 179 219 170 Z" fill="#ffffff" stroke="#0f172a" stroke-width="3.2"/>
+                                <circle cx="239" cy="170" r="6.5" fill="#0f172a"/>
+                                <circle cx="241" cy="168" r="2" fill="#ffffff"/>
+                                <!-- Eyelid crease -->
+                                <path d="M222 162 Q240 156 258 162" fill="none" stroke="#334155" stroke-width="1.8" stroke-linecap="round"/>
+
+                                <!-- Nose Bridge Subtle Lines -->
+                                <path d="M194 166 L192 182" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M206 166 L208 182" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round"/>
+
+                                <!-- Iconic Man Face Smirk -->
+                                <path d="M150 236 Q205 246 248 222" fill="none" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
+                                <!-- Left Smile Corner Tick -->
+                                <path d="M150 230 L150 242" fill="none" stroke="#0f172a" stroke-width="3.2" stroke-linecap="round"/>
+                                <!-- Cheek Dimple / Jawline Crease -->
+                                <path d="M262 204 Q256 232 246 252" fill="none" stroke="#0f172a" stroke-width="3.2" stroke-linecap="round"/>
+
+                                <!-- Top & Front Bacon Hair Strands -->
+                                <!-- Top Crown -->
+                                <path d="M98 122 C96 62, 165 38, 215 44 C265 48, 312 75, 306 130 C282 112, 242 104, 200 104 C156 104, 122 110, 98 122 Z" fill="url(#hairGrad1)" stroke="#3d1a04" stroke-width="2"/>
+                                
+                                <!-- Left Sweeping Bacon Strand -->
+                                <path d="M142 74 C105 84, 78 132, 84 195 C92 204, 110 202, 118 190 C115 148, 130 114, 160 96 Z" fill="url(#hairHighlight)" stroke="#3d1a04" stroke-width="2"/>
+                                
+                                <!-- Center-Left Forehead Lock -->
+                                <path d="M174 68 C154 92, 152 128, 162 152 C172 156, 186 150, 190 138 C186 116, 190 92, 204 74 Z" fill="url(#hairHighlight)" stroke="#3d1a04" stroke-width="2"/>
+                                
+                                <!-- Center-Right Forehead Lock -->
+                                <path d="M204 66 C198 96, 204 134, 218 158 C230 160, 242 152, 244 138 C236 114, 234 88, 240 68 Z" fill="url(#hairHighlight)" stroke="#3d1a04" stroke-width="2"/>
+
+                                <!-- Right Sweeping Bacon Strand -->
+                                <path d="M238 68 C275 82, 316 132, 314 202 C304 210, 286 206, 280 192 C280 146, 262 112, 232 94 Z" fill="url(#hairHighlight)" stroke="#3d1a04" stroke-width="2"/>
+                            </svg>
+                        </div>
+
+                        <!-- Floating Achievement Pill 1 -->
+                        <div class="hidden sm:flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-navy-900/95 backdrop-blur-md border border-sky-400/30 shadow-xl absolute -left-8 top-8">
+                            <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center">
+                                <i class="fa-solid fa-medal"></i>
+                            </div>
+                            <div>
+                                <p class="text-[11px] text-slate-400 uppercase font-semibold">Toán học</p>
+                                <p class="text-xs font-bold text-white">HCV IMO</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Achievement Pill 2 -->
+                        <div class="hidden sm:flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-navy-900/95 backdrop-blur-md border border-sky-400/30 shadow-xl absolute -right-6 bottom-10">
+                            <div class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <p class="text-[11px] text-slate-400 uppercase font-semibold">Mục tiêu</p>
+                                <p class="text-xs font-bold text-white">NEU University</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-blue-500/10">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-sky-400 font-mono text-sm font-semibold tracking-wider uppercase">01. About Me</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Đôi nét về bản thân mình</h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-sky-400 to-blue-600 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    <!-- Story Card -->
+                    <div class="lg:col-span-7 p-6 sm:p-8 rounded-3xl bg-navy-900/60 backdrop-blur-md border border-blue-500/20 flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="inline-flex items-center gap-2 text-sky-400 font-semibold text-sm">
+                                <i class="fa-solid fa-compass"></i>
+                                <span>Tư duy khám phá & Học hỏi không ngừng</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white leading-snug">
+                                Luôn tò mò trước thế giới rộng lớn và khao khát chinh phục những đỉnh cao mới.
+                            </h3>
+                            <p class="text-slate-300 leading-relaxed">
+                                Xin chào! Mình là <strong class="text-white">Lại Đoàn Đức Long</strong>, hiện đang là học sinh tại <strong class="text-sky-300">Trường THPT Hòn Gai</strong>. Đối với mình, mỗi ngày trôi qua đều là một cơ hội tuyệt vời để tìm tòi những kiến thức mới mẻ và trải nghiệm những khía cạnh đa dạng của cuộc sống.
+                            </p>
+                            <p class="text-slate-300 leading-relaxed">
+                                Từ tư duy logic sắc bén của Toán học cho đến khả năng giao tiếp toàn cầu qua ngoại ngữ, mình luôn rèn luyện bản thân để sẵn sàng bước vào môi trường năng động tại <strong class="text-sky-400">Trường Đại học Kinh tế Quốc dân (NEU)</strong> — nơi mình đặt trọn tâm huyết và nguyện vọng cho chặng đường đại học sắp tới.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-blue-500/15">
+                            <div>
+                                <p class="text-2xl font-extrabold text-sky-400">THPT</p>
+                                <p class="text-xs text-slate-400 mt-0.5">Hòn Gai, Quảng Ninh</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-extrabold text-white">NEU</p>
+                                <p class="text-xs text-slate-400 mt-0.5">Nguyện vọng hàng đầu</p>
+                            </div>
+                            <div class="col-span-2 sm:col-span-1">
+                                <p class="text-2xl font-extrabold text-sky-400">100%</p>
+                                <p class="text-xs text-slate-400 mt-0.5">Nhiệt huyết & Đam mê</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Core Values Cards -->
+                    <div class="lg:col-span-5 grid grid-cols-1 gap-4">
+                        <div class="p-6 rounded-3xl bg-navy-900/60 backdrop-blur-md border border-blue-500/20 hover:border-sky-400/40 transition-all group">
+                            <div class="w-11 h-11 rounded-2xl bg-sky-500/15 text-sky-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-1.5">Ham học hỏi & Sáng tạo</h4>
+                            <p class="text-sm text-slate-400 leading-relaxed">
+                                Không bao giờ giới hạn bản thân trong vùng an toàn; luôn chủ động đặt câu hỏi và tìm kiếm giải pháp tối ưu cho mọi vấn đề.
+                            </p>
+                        </div>
+
+                        <div class="p-6 rounded-3xl bg-navy-900/60 backdrop-blur-md border border-blue-500/20 hover:border-sky-400/40 transition-all group">
+                            <div class="w-11 h-11 rounded-2xl bg-blue-500/15 text-blue-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-globe"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-1.5">Tư duy hội nhập quốc tế</h4>
+                            <p class="text-sm text-slate-400 leading-relaxed">
+                                Sử dụng thành thạo tiếng Anh và các công cụ chuẩn hóa quốc tế để tiếp cận kho tàng tri thức kinh tế và khoa học hiện đại.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACHIEVEMENTS SECTION -->
+        <section id="achievements" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-blue-500/10 bg-navy-900/30">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-sky-400 font-mono text-sm font-semibold tracking-wider uppercase">02. Honors & Awards</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Bảng vàng thành tích</h2>
+                    <p class="text-slate-400 text-sm sm:text-base mt-3">
+                        Những dấu ấn tự hào trên hành trình nỗ lực học tập và rèn luyện không ngừng nghỉ.
                     </p>
                 </div>
 
-                <!-- Card 2: SAT 1600/1600 -->
-                <div class="luxury-glass rounded-2xl p-8 relative overflow-hidden reveal" style="transition-delay: 100ms;">
-                    <div class="absolute -right-4 -top-4 text-gold/10 text-6xl font-serif font-bold">1600</div>
-                    <div class="w-12 h-12 rounded-xl bg-gold/15 border border-gold/30 flex items-center justify-center text-gold text-xl mb-6">
-                        <i class="fa-solid fa-award"></i>
+                <!-- 4 Achievement Cards Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Card 1: IMO Gold Medal -->
+                    <div class="relative p-6 rounded-3xl bg-gradient-to-b from-navy-800/90 to-navy-900/90 border border-sky-400/30 hover:border-sky-400 transition-all duration-300 hover:-translate-y-2 shadow-xl shadow-blue-950/50 group">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 text-navy-950 flex items-center justify-center text-2xl font-bold shadow-lg shadow-amber-500/25 mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <span class="inline-block px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 text-xs font-semibold mb-3">
+                            Quốc tế
+                        </span>
+                        <h3 class="text-xl font-extrabold text-white mb-2">Huy chương Vàng IMO</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Đạt Huy chương Vàng danh giá tại Kỳ thi Olympic Toán Quốc tế (International Mathematical Olympiad).
+                        </p>
                     </div>
-                    <p class="text-xs uppercase tracking-widest text-gold mb-1">Chuẩn hóa Hoa Kỳ</p>
-                    <h3 class="font-serif text-4xl font-bold gold-gradient-text mb-2">SAT 1600/1600</h3>
-                    <p class="text-slate-400 text-sm font-light leading-relaxed">
-                        Điểm tuyệt đối phần Toán học & Đọc viết phân tích, lọt Top 0.1% thí sinh xuất sắc nhất toàn cầu.
+
+                    <!-- Card 2: IELTS 9.0 -->
+                    <div class="relative p-6 rounded-3xl bg-gradient-to-b from-navy-800/90 to-navy-900/90 border border-sky-400/30 hover:border-sky-400 transition-all duration-300 hover:-translate-y-2 shadow-xl shadow-blue-950/50 group">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 text-white flex items-center justify-center text-xl font-extrabold shadow-lg shadow-sky-500/25 mb-5 group-hover:scale-110 transition-transform">
+                            9.0
+                        </div>
+                        <span class="inline-block px-3 py-1 rounded-full bg-sky-500/15 text-sky-300 text-xs font-semibold mb-3">
+                            Ngoại ngữ
+                        </span>
+                        <h3 class="text-xl font-extrabold text-white mb-2">IELTS 9.0 Overall</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Chinh phục mức điểm tuyệt đối 9.0 trong kỳ thi đánh giá năng lực tiếng Anh quốc tế IELTS.
+                        </p>
+                    </div>
+
+                    <!-- Card 3: SAT 1600 -->
+                    <div class="relative p-6 rounded-3xl bg-gradient-to-b from-navy-800/90 to-navy-900/90 border border-sky-400/30 hover:border-sky-400 transition-all duration-300 hover:-translate-y-2 shadow-xl shadow-blue-950/50 group">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center text-lg font-extrabold shadow-lg shadow-blue-500/25 mb-5 group-hover:scale-110 transition-transform">
+                            1600
+                        </div>
+                        <span class="inline-block px-3 py-1 rounded-full bg-blue-500/15 text-blue-300 text-xs font-semibold mb-3">
+                            Chuẩn hóa
+                        </span>
+                        <h3 class="text-xl font-extrabold text-white mb-2">SAT 1600 / 1600</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Đạt số điểm tối đa tuyệt đối 1600 điểm trong kỳ thi chuẩn hóa học thuật quốc tế SAT.
+                        </p>
+                    </div>
+
+                    <!-- Card 4: Full GPA -->
+                    <div class="relative p-6 rounded-3xl bg-gradient-to-b from-navy-800/90 to-navy-900/90 border border-sky-400/30 hover:border-sky-400 transition-all duration-300 hover:-translate-y-2 shadow-xl shadow-blue-950/50 group">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-400 to-teal-500 text-navy-950 flex items-center justify-center text-2xl font-bold shadow-lg shadow-cyan-500/25 mb-5 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="inline-block px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 text-xs font-semibold mb-3">
+                            Học tập
+                        </span>
+                        <h3 class="text-xl font-extrabold text-white mb-2">GPA Full Điểm THPT</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Duy trì thành tích học tập xuất sắc với điểm trung bình (GPA) tuyệt đối suốt bậc Trung học Phổ thông.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FUTURE GOALS / NEU SECTION -->
+        <section id="goals" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-blue-500/10">
+            <div class="max-w-5xl mx-auto">
+                <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-navy-800/90 via-navy-900/95 to-blue-950/90 border border-sky-400/30 shadow-2xl relative overflow-hidden">
+                    <!-- Decorative Corner Icon -->
+                    <div class="absolute -right-8 -bottom-8 text-sky-500/10 text-9xl pointer-events-none">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </div>
+
+                    <div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-8 space-y-4">
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/15 text-sky-300 text-xs font-semibold">
+                                <i class="fa-solid fa-bullseye"></i>
+                                <span>Định hướng tương lai</span>
+                            </span>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+                                Chinh phục Đại học Kinh tế Quốc dân (NEU)
+                            </h2>
+                            <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                                Với nền tảng tư duy định lượng vững chắc từ Toán học, khả năng ngoại ngữ xuất sắc cùng niềm đam mê tìm hiểu cách thế giới vận hành, mình đặt mục tiêu trở thành tân sinh viên của <strong class="text-sky-400">Trường Đại học Kinh tế Quốc dân (National Economics University)</strong>. Mình mong muốn kết hợp tư duy phân tích sắc bén với kiến thức kinh tế hiện đại để tạo ra những giá trị thiết thực cho cộng đồng.
+                            </p>
+                        </div>
+                        <div class="md:col-span-4 flex flex-col items-center justify-center p-6 rounded-2xl bg-navy-950/70 border border-sky-400/20 text-center">
+                            <div class="w-16 h-16 rounded-2xl bg-blue-600/20 border border-sky-400/30 flex items-center justify-center text-sky-400 text-3xl mb-3">
+                                <i class="fa-solid fa-landmark"></i>
+                            </div>
+                            <p class="text-xl font-black tracking-wide text-white">NEU</p>
+                            <p class="text-xs text-sky-400 font-medium mt-1">National Economics University</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-blue-500/10">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-sky-400 font-mono text-sm font-semibold tracking-wider uppercase">03. Get In Touch</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Kết nối với Đức Long</h2>
+                    <p class="text-slate-400 text-sm sm:text-base mt-3">
+                        Nếu bạn muốn trao đổi về học tập, chia sẻ kinh nghiệm hay đơn giản là kết thêm bạn mới, đừng ngần ngại liên hệ với mình nhé!
                     </p>
                 </div>
 
-                <!-- Card 3: GPA 10.0 / Thủ khoa -->
-                <div class="luxury-glass rounded-2xl p-8 relative overflow-hidden reveal" style="transition-delay: 200ms;">
-                    <div class="absolute -right-4 -top-4 text-gold/10 text-7xl font-serif font-bold">10</div>
-                    <div class="w-12 h-12 rounded-xl bg-gold/15 border border-gold/30 flex items-center justify-center text-gold text-xl mb-6">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <p class="text-xs uppercase tracking-widest text-gold mb-1">THPT Hòn Gai</p>
-                    <h3 class="font-serif text-4xl font-bold gold-gradient-text mb-2">GPA 10.0 / 10</h3>
-                    <p class="text-slate-400 text-sm font-light leading-relaxed">
-                        Danh hiệu Học sinh Xuất sắc toàn diện, dẫn đầu khối về thành tích học tập và nghiên cứu khoa học kỹ thuật.
-                    </p>
-                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Direct Contact Info -->
+                    <div class="space-y-4">
+                        <!-- Email Card -->
+                        <div class="p-6 rounded-3xl bg-navy-900/70 border border-blue-500/20 hover:border-sky-400/40 transition-all flex items-center justify-between gap-4">
+                            <div class="flex items-center gap-4 min-w-0">
+                                <div class="w-12 h-12 rounded-2xl bg-sky-500/15 text-sky-400 flex items-center justify-center text-xl shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="text-xs text-slate-400 font-medium">Email cá nhân</p>
+                                    <a href="mailto:lailoang209@gmail.com" class="text-white font-semibold text-sm sm:text-base hover:text-sky-400 transition-colors truncate block">
+                                        lailoang209@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            <button onclick="copyEmail()" class="px-3.5 py-2 rounded-xl bg-blue-600/20 hover:bg-blue-600 text-sky-300 hover:text-white text-xs font-semibold transition-all shrink-0">
+                                Sao chép
+                            </button>
+                        </div>
 
-                <!-- Card 4: Giải Nhất Quốc Gia / Tin học -->
-                <div class="luxury-glass rounded-2xl p-8 relative overflow-hidden reveal" style="transition-delay: 300ms;">
-                    <div class="absolute -right-4 -top-4 text-gold/10 text-7xl font-serif font-bold">#1</div>
-                    <div class="w-12 h-12 rounded-xl bg-gold/15 border border-gold/30 flex items-center justify-center text-gold text-xl mb-6">
-                        <i class="fa-solid fa-trophy"></i>
-                    </div>
-                    <p class="text-xs uppercase tracking-widest text-gold mb-1">Đấu trường Tri thức</p>
-                    <h3 class="font-serif text-3xl font-bold gold-gradient-text mb-2">Giải Nhất HSG</h3>
-                    <p class="text-slate-400 text-sm font-light leading-relaxed">
-                        Huy chương Vàng Olympic & Giải Nhất Học sinh Giỏi cấp Tỉnh/Quốc gia về Ngoại ngữ & Tư duy Thuật toán.
-                    </p>
-                </div>
+                        <!-- Facebook Card -->
+                        <a href="https://www.facebook.com/share/1dqaGywucq/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="p-6 rounded-3xl bg-navy-900/70 border border-blue-500/20 hover:border-sky-400/40 transition-all flex items-center justify-between gap-4 group">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-xl shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400 font-medium">Mạng xã hội Facebook</p>
+                                    <p class="text-white font-semibold text-sm sm:text-base group-hover:text-sky-400 transition-colors">
+                                        Lại Đoàn Đức Long
+                                    </p>
+                                </div>
+                            </div>
+                            <span class="w-9 h-9 rounded-xl bg-navy-800 flex items-center justify-center text-slate-400 group-hover:text-sky-400 group-hover:translate-x-1 transition-all">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                            </span>
+                        </a>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- PHẦN 2: TRÌNH CHIẾU VIDEO SHOWCASE -->
-    <section id="showcase" class="py-24 px-6 bg-obsidian/40 border-y border-gold/10">
-        <div class="max-w-5xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
-                <div>
-                    <p class="text-gold text-xs uppercase tracking-[0.3em] mb-2">Featured Visuals</p>
-                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-white">Góc Nhìn & Dấu Ấn Cá Nhân</h2>
-                </div>
-                <p class="text-slate-400 text-sm max-w-md mt-4 md:mt-0 font-light">
-                    Thước phim ghi lại hành trình học tập, khám phá công nghệ và niềm tự hào về quê hương Hạ Long.
-                </p>
-            </div>
-
-            <!-- Khung trình chiếu Video sang trọng -->
-            <div class="luxury-glass rounded-3xl p-3 md:p-5 reveal">
-                <div class="relative rounded-2xl overflow-hidden aspect-video bg-abyss group">
-                    <!-- Video chính có thanh điều khiển (Bạn có thể thay link video của bạn vào thẻ src bên dưới) -->
-                    <video id="featuredVideo" controls playsinline class="w-full h-full object-cover" poster="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?q=80&w=2070&auto=format&fit=crop">
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-sunset-over-the-sea-with-mountains-in-the-background-42879-large.mp4" type="video/mp4">
-                        Trình duyệt của bạn không hỗ trợ phát video.
-                    </video>
-                </div>
-                <div class="flex flex-wrap justify-between items-center mt-5 px-2 gap-4">
-                    <div>
-                        <h4 class="font-serif text-xl font-semibold text-gold-light">Hạ Long — Nơi Khởi Nguồn Những Giấc Mơ Lớn</h4>
-                        <p class="text-xs text-slate-400 mt-1">Sản xuất & Thực hiện bởi Đức Long • THPT Hòn Gai</p>
-                    </div>
-                    <span class="px-3 py-1 rounded-full bg-gold/10 border border-gold/30 text-gold text-xs">
-                        4K Ultra HD Showcase
-                    </span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PHẦN 3: TẦM NHÌN & KỸ NĂNG -->
-    <section id="about" class="py-24 px-6">
-        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-            <div class="md:col-span-5 reveal">
-                <div class="luxury-glass rounded-3xl p-8 text-center relative">
-                    <div class="w-28 h-28 mx-auto rounded-full border-2 border-gold p-1 mb-6">
-                        <div class="w-full h-full rounded-full bg-gradient-to-br from-obsidian to-abyss flex items-center justify-center font-serif text-3xl font-bold gold-gradient-text">
-                            ĐL
+                        <!-- School Card -->
+                        <div class="p-6 rounded-3xl bg-navy-900/70 border border-blue-500/20 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-indigo-500/15 text-indigo-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-school"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">Đơn vị học tập</p>
+                                <p class="text-white font-semibold text-sm sm:text-base">
+                                    Trường THPT Hòn Gai
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <h3 class="font-serif text-3xl font-bold text-white mb-1">Đức Long</h3>
-                    <p class="text-gold text-xs uppercase tracking-widest mb-6">Student • Innovator • Leader</p>
-                    <div class="space-y-3 text-left text-sm border-t border-gold/15 pt-6 text-slate-300">
-                        <div class="flex justify-between">
-                            <span class="text-slate-400">Trường:</span>
-                            <span class="font-medium text-white">THPT Hòn Gai</span>
+
+                    <!-- Quick Message Form -->
+                    <form id="contact-form" class="p-6 sm:p-8 rounded-3xl bg-navy-900/70 border border-blue-500/20 space-y-4">
+                        <h3 class="text-lg font-bold text-white mb-2">Gửi lời nhắn nhanh</h3>
+                        <div>
+                            <label for="sender-name" class="block text-xs font-medium text-slate-400 mb-1.5">Tên của bạn</label>
+                            <input type="text" id="sender-name" required placeholder="Nhập tên của bạn..." class="w-full px-4 py-3 rounded-xl bg-navy-950/80 border border-blue-500/25 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-sky-400 transition-colors">
                         </div>
-                        <div class="flex justify-between">
-                            <span class="text-slate-400">Quê quán:</span>
-                            <span class="font-medium text-white">Hạ Long, Quảng Ninh</span>
+                        <div>
+                            <label for="sender-message" class="block text-xs font-medium text-slate-400 mb-1.5">Nội dung lời nhắn</label>
+                            <textarea id="sender-message" rows="3" required placeholder="Chào Đức Long, mình muốn kết nối với bạn..." class="w-full px-4 py-3 rounded-xl bg-navy-950/80 border border-blue-500/25 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-sky-400 transition-colors resize-none"></textarea>
                         </div>
-                        <div class="flex justify-between">
-                            <span class="text-slate-400">Định hướng:</span>
-                            <span class="font-medium text-gold">Công nghệ & Quản trị Toàn cầu</span>
-                        </div>
-                    </div>
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-semibold text-sm shadow-lg shadow-blue-600/25 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Gửi qua Email</span>
+                        </button>
+                    </form>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <div class="md:col-span-7 space-y-6 reveal">
-                <p class="text-gold text-xs uppercase tracking-[0.3em]">Personal Philosophy</p>
-                <h2 class="font-serif text-4xl font-bold text-white leading-tight">
-                    Kết hợp kỷ luật thép của đất Mỏ với tư duy mở của công dân toàn cầu.
-                </h2>
-                <p class="text-slate-300 font-light leading-relaxed">
-                    Với nền tảng vững chắc tại mái trường THPT Hòn Gai, tôi không ngừng đặt ra những cột mốc cao nhất cho bản thân — từ việc chinh phục điểm số tuyệt đối trong các kỳ thi chuẩn hóa quốc tế đến việc ứng dụng lập trình web và AI để lan tỏa vẻ đẹp văn hóa quê hương.
-                </p>
-                <div class="grid grid-cols-2 gap-4 pt-4">
-                    <div class="border-l-2 border-gold pl-4">
-                        <h4 class="font-semibold text-white">Lãnh đạo & Truyền cảm hứng</h4>
-                        <p class="text-xs text-slate-400 mt-1">Chủ nhiệm CLB & Điều phối các dự án học thuật trẻ.</p>
-                    </div>
-                    <div class="border-l-2 border-gold pl-4">
-                        <h4 class="font-semibold text-white">Sáng tạo Kỹ thuật số</h4>
-                        <p class="text-xs text-slate-400 mt-1">Thiết kế Web hiện đại, AI Prompting & Sản xuất nội dung.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER / LIÊN HỆ -->
-    <footer id="contact" class="py-16 px-6 border-t border-gold/15 bg-abyss text-center">
-        <div class="max-w-2xl mx-auto">
-            <h2 class="font-serif text-3xl md:text-4xl font-bold gold-gradient-text mb-4">Sẵn sàng cho những cơ hội mới</h2>
-            <p class="text-slate-400 text-sm font-light mb-8">
-                Kết nối với Đức Long để trao đổi về học thuật, dự án sáng tạo hoặc hợp tác phát triển.
-            </p>
-            <div class="flex justify-center gap-4 mb-12">
-                <a href="mailto:duclong.halong@example.com" class="w-12 h-12 rounded-full luxury-glass flex items-center justify-center text-gold hover:scale-110 transition">
-                    <i class="fa-solid fa-envelope"></i>
-                </a>
-                <a href="https://github.com/lailoang" target="_blank" class="w-12 h-12 rounded-full luxury-glass flex items-center justify-center text-gold hover:scale-110 transition">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-            </div>
-            <p class="text-xs text-slate-500 tracking-widest uppercase">
-                © 2026 ĐỨC LONG • THPT HÒN GAI, HẠ LONG. ALL RIGHTS RESERVED.
-            </p>
+    <!-- FOOTER -->
+    <footer class="relative z-10 border-t border-blue-500/15 bg-navy-950/90 py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+            <p>© 2025 <span class="text-white font-semibold">Lại Đoàn Đức Long</span>. All rights reserved.</p>
+            <p class="font-mono text-xs text-sky-400/80">Let's dive deeper into who I am.</p>
         </div>
     </footer>
 
-    <!-- Script kích hoạt hiệu ứng cuộn mượt mà -->
+    <!-- Interactive JavaScript -->
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
+        // Helper: Show custom toast notification
+        let toastTimeout;
+        function showToast(message, iconClass = 'fa-check') {
+            const toastBox = document.getElementById('toast-box');
+            const toastMessage = document.getElementById('toast-message');
+            const toastIcon = document.getElementById('toast-icon');
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            toastMessage.textContent = message;
+            toastIcon.className = `fa-solid ${iconClass}`;
+
+            toastBox.classList.remove('translate-y-24', 'opacity-0');
+            toastBox.classList.add('translate-y-0', 'opacity-100');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toastBox.classList.add('translate-y-24', 'opacity-0');
+                toastBox.classList.remove('translate-y-0', 'opacity-100');
+            }, 3200);
+        }
+
+        // Copy Email to Clipboard using execCommand fallback
+        function copyEmail() {
+            const email = 'lailoang209@gmail.com';
+            const tempInput = document.createElement('input');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showToast('Đã sao chép email: ' + email, 'fa-copy');
+            } catch (err) {
+                showToast('Email: ' + email, 'fa-envelope');
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Contact Form Submission (Opens default mail client pre-filled)
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('sender-name').value.trim();
+            const message = document.getElementById('sender-message').value.trim();
+
+            if (!name || !message) return;
+
+            const subject = encodeURIComponent(`Lời nhắn từ ${name} qua Portfolio`);
+            const body = encodeURIComponent(`Chào Đức Long,\n\n${message}\n\nTrân trọng,\n${name}`);
+            
+            showToast('Đang mở ứng dụng gửi Email...', 'fa-paper-plane');
+            window.location.href = `mailto:lailoang209@gmail.com?subject=${subject}&body=${body}`;
+            contactForm.reset();
+        });
     </script>
 </body>
 </html>
